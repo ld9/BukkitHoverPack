@@ -5,6 +5,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.Damageable;
 
 public class InteractListener implements Listener {
 	@EventHandler
@@ -12,7 +13,7 @@ public class InteractListener implements Listener {
 		if (e.getItem() != null && e.getItem().getType().equals(HoverPack.getRefinedFuel().getType())) {
 			if (e.getItem().getEnchantments().containsKey(Enchantment.ARROW_INFINITE)) {
 				for (ItemStack item : e.getPlayer().getInventory().all(HoverPack.getNewHoverPack().getType()).values()) {
-					if (item.getEnchantments().containsKey(Enchantment.ARROW_INFINITE)) {
+					if (item.getEnchantments().containsKey(Enchantment.ARROW_INFINITE) && ((Damageable) item.getItemMeta()).getDamage() > 0) {
 						HoverPack.updateFuelLevel(item, 60, e.getPlayer());
 						e.getItem().subtract();
 						return;

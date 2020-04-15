@@ -54,6 +54,11 @@ public class HoverPack extends JavaPlugin {
 		int maxDamage = hoverPack.getType().getMaxDurability();
 		
 		damage += (-1 * amount);
+		
+		if (damage < 0) {
+			damage = 0;
+		}
+		
 		((Damageable) hoverPackMeta).setDamage(damage);
 		ArrayList<String> lore = new ArrayList<String>(hoverPackMeta.getLore());
 		lore.remove(lore.size() - 1);
