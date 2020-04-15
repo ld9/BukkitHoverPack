@@ -1,0 +1,6 @@
+main: ch.dlyn.hoverpack.HoverPack
+name: HoverPack
+version: 0.1.1
+permissions:
+  hoverpack.use:
+    default: op
