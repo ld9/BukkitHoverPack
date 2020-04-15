@@ -24,6 +24,7 @@ public class HoverPack extends JavaPlugin {
 		getServer().getPluginManager().registerEvents(new MobKillListener(), this);
 		getServer().getPluginManager().registerEvents(new ArmorChangeListener(), this);
 		getServer().getPluginManager().registerEvents(new InteractListener(), this);
+		getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
 		
 		activePlayers = new ArrayList<>();
 		
