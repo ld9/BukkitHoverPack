@@ -8,7 +8,7 @@ public class CraftingAdditions {
 		ShapedRecipe fuelRecipe = new ShapedRecipe(HoverPack.getRefinedFuelNamespacedKey(), HoverPack.getRefinedFuel());
 		fuelRecipe.shape("XAX", "ABA", "XAX");
 		fuelRecipe.setIngredient('X', Material.AIR);
-		fuelRecipe.setIngredient('A', HoverPack.getCustomFuelRod());
+		fuelRecipe.setIngredient('A', HoverPack.getCustomRawFuel());
 		fuelRecipe.setIngredient('B', Material.DIAMOND);
 		
 		HoverPack.getPlugin(HoverPack.class).getServer().addRecipe(fuelRecipe);
@@ -16,7 +16,7 @@ public class CraftingAdditions {
 		ShapedRecipe hoverPack = new ShapedRecipe(HoverPack.getHoverPackNamespacedKey(), HoverPack.getNewHoverPack());
 		hoverPack.shape("XAX", "ABA", "CAC");
 		hoverPack.setIngredient('X', Material.AIR);
-		hoverPack.setIngredient('A', HoverPack.getCustomFuelRod());
+		hoverPack.setIngredient('A', HoverPack.getCustomRawFuel());
 		hoverPack.setIngredient('B', Material.DIAMOND_CHESTPLATE);
 		hoverPack.setIngredient('C', Material.NETHER_STAR);
 		

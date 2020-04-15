@@ -80,11 +80,15 @@ public class HoverPack extends JavaPlugin {
 		return new NamespacedKey(HoverPack.getPlugin(HoverPack.class), "hoverPack");
 	}
 	
-	public static ItemStack getCustomFuelRod() {
+	public static ItemStack getCustomRawFuel() {
 		ItemStack customFuel = new ItemStack(Material.BLAZE_POWDER);
 		
 		ItemMeta customFuelMeta = customFuel.getItemMeta();
-		customFuelMeta.setDisplayName(ChatColor.DARK_RED + "Unstable Fuel");
+		customFuelMeta.setDisplayName(ChatColor.RED + "Unstable Fuel");
+		ArrayList<String> rawFuelItemLore = new ArrayList<>();
+		rawFuelItemLore.add(ChatColor.DARK_AQUA + "Use this to craft refined fuel.");
+		rawFuelItemLore.add(ChatColor.GREEN + "Four" + ChatColor.DARK_AQUA + " unstable fuel are required to craft " + ChatColor.GREEN + "one" + ChatColor.DARK_AQUA + " refined fuel.");
+		customFuelMeta.setLore(rawFuelItemLore);
 		customFuel.setItemMeta(customFuelMeta);
 		
 		customFuel.addUnsafeEnchantment(Enchantment.ARROW_INFINITE, 1);
@@ -92,11 +96,15 @@ public class HoverPack extends JavaPlugin {
 	}
 	
 	public static ItemStack getRefinedFuel() {
-		ItemStack fuelItem = new ItemStack(Material.BLAZE_POWDER);
+		ItemStack fuelItem = new ItemStack(Material.MAGMA_CREAM);
 		fuelItem.addUnsafeEnchantment(Enchantment.ARROW_INFINITE, 1);
 		
 		ItemMeta fuelItemMeta = fuelItem.getItemMeta();
 		fuelItemMeta.setDisplayName(ChatColor.DARK_GREEN + "Refined Fuel");
+		ArrayList<String> fuelItemLore = new ArrayList<>();
+		fuelItemLore.add(ChatColor.DARK_AQUA + "Use this to re-fuel a hoverpack.");
+		fuelItemLore.add(ChatColor.DARK_AQUA + "One refined fuel will run the pack for " + ChatColor.GREEN + "60" + ChatColor.DARK_AQUA + " seconds.");
+		fuelItemMeta.setLore(fuelItemLore);
 		fuelItem.setItemMeta(fuelItemMeta);
 		
 		return fuelItem;
@@ -107,9 +115,10 @@ public class HoverPack extends JavaPlugin {
 		
 		hoverPack.addUnsafeEnchantment(Enchantment.ARROW_INFINITE, 1);
 		ItemMeta hoverPackMeta = hoverPack.getItemMeta();
-		hoverPackMeta.setDisplayName(ChatColor.GOLD + "HoverPack");
+		hoverPackMeta.setDisplayName(ChatColor.GOLD + "Hoverpack");
 		ArrayList<String> hoverPackLore = new ArrayList<>();
-		hoverPackLore.add(ChatColor.GOLD + "Charge with fuel and equip to fly for a short period.");
+		hoverPackLore.add(ChatColor.DARK_AQUA + "Charge with fuel and equip to fly for a short period.");
+		hoverPackLore.add(ChatColor.DARK_AQUA + "Hoverpack will use fuel whenever equipped.");
 		hoverPackLore.add(ChatColor.RED + "Current Charge: 240/240");
 		hoverPackMeta.setLore(hoverPackLore);
 		hoverPack.setItemMeta(hoverPackMeta);
