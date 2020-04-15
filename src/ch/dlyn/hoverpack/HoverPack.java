@@ -1,6 +1,7 @@
 package ch.dlyn.hoverpack;
 
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -41,8 +42,12 @@ public class HoverPack extends JavaPlugin {
 
 			@Override
 			public void run() {
-				for (Player player : activePlayers) {
-					HoverPack.updateFuelLevel(player.getInventory().getChestplate(), -1, player);
+				try {
+					for (Player player : activePlayers) {
+						HoverPack.updateFuelLevel(player.getInventory().getChestplate(), -1, player);
+					}
+				} catch (ConcurrentModificationException e) {
+					// I don't care.
 				}
 			}
 			
