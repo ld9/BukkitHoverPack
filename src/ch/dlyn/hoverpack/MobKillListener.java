@@ -22,7 +22,7 @@ public class MobKillListener implements Listener  {
 	public void mobKill(EntityDeathEvent e) {
 		if (e.getEntityType().equals(EntityType.BLAZE)) {
 			if (Math.random() < calculateDropChance(e.getEntity())) {
-				e.getDrops().add(HoverPack.getCustomRawFuel());
+				e.getDrops().add(CraftingAdditions.getCustomRawFuel());
 			}
 		}
 	}

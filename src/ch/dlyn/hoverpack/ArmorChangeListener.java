@@ -15,15 +15,15 @@ public class ArmorChangeListener implements Listener {
 		ItemStack oldArmor = e.getOldArmorPiece();
 		
 		if (newArmor != null &&
-				newArmor.getType().equals(HoverPack.getNewHoverPack().getType()) &&
+				newArmor.getType().equals(CraftingAdditions.getNewHoverPack().getType()) &&
 				newArmor.getEnchantments().containsKey(Enchantment.ARROW_INFINITE) &&
-				((Damageable) newArmor.getItemMeta()).getDamage() < HoverPack.getNewHoverPack().getType().getMaxDurability() ) {
+				((Damageable) newArmor.getItemMeta()).getDamage() < CraftingAdditions.getNewHoverPack().getType().getMaxDurability() ) {
 			e.getPlayer().setAllowFlight(true);
 			HoverPack.activePlayers.add(e.getPlayer());
 		}
 		
 		if (oldArmor != null &&
-				oldArmor.getType().equals(HoverPack.getNewHoverPack().getType()) &&
+				oldArmor.getType().equals(CraftingAdditions.getNewHoverPack().getType()) &&
 				oldArmor.getEnchantments().containsKey(Enchantment.ARROW_INFINITE)) {
 			e.getPlayer().setAllowFlight(false);
 			HoverPack.activePlayers.remove(e.getPlayer());
